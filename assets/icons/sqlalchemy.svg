@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" role="img" aria-label="SQLAlchemy">
+  <title>SQLAlchemy</title>
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity=".75"/>
+    </linearGradient>
+    <linearGradient id="f" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141B33"/>
+      <stop offset="1" stop-color="#0A0F1F"/>
+    </linearGradient>
+  </defs>
+  <rect x=".75" y=".75" width="54.5" height="54.5" rx="14" fill="url(#f)" stroke="url(#b)" stroke-width="1.5"/>
+  <text x="28" y="33.5" text-anchor="middle" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" font-weight="800" fill="#F0563A" letter-spacing="-.3">SQLA</text>
+</svg>

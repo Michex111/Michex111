@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="t d">
+  <title id="t">Chukwuebuka Madu — backend and systems engineer</title>
+  <desc id="d">Animated banner with a typing line describing current work, and a live-looking diagram of the Transform request path: MCP agents and a React SPA call a FastAPI service backed by PostgreSQL and Redis Streams, which feed workers that write to S3 storage.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070A14"/><stop offset="1" stop-color="#0C1226"/>
+    </linearGradient>
+    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E0F2FE"/><stop offset=".55" stop-color="#A5B4FC"/><stop offset="1" stop-color="#D8B4FE"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity=".55"/><stop offset=".5" stop-color="#3B82F6" stop-opacity=".15"/><stop offset="1" stop-color="#8B5CF6" stop-opacity=".55"/>
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.1" fill="#8FA3D8" fill-opacity=".22"/></pattern>
+    <radialGradient id="fade" cx=".7" cy=".45" r=".75"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <mask id="m"><rect width="1200" height="400" fill="url(#fade)"/></mask>
+    <clipPath id="card"><rect width="1200" height="400" rx="26"/></clipPath>
+    <style>
+      .a1{animation:drift1 22s ease-in-out infinite alternate}
+      .a2{animation:drift2 26s ease-in-out infinite alternate}
+      .a3{animation:drift3 30s ease-in-out infinite alternate}
+      @keyframes drift1{to{transform:translate(140px,40px)}}
+      @keyframes drift2{to{transform:translate(-160px,-30px)}}
+      @keyframes drift3{to{transform:translate(90px,-60px)}}
+      .flow{animation:flow 1.6s linear infinite}
+      @keyframes flow{to{stroke-dashoffset:-28}}
+      @keyframes blink{50%{fill-opacity:0}}
+      @keyframes w0{0.00%{transform:scaleX(0);animation-timing-function:steps(42,end)}10.50%{transform:scaleX(1)}21.50%{transform:scaleX(1);animation-timing-function:steps(42,end)}24.50%{transform:scaleX(0)}100%{transform:scaleX(0)}} @keyframes c0{0.00%{transform:translateX(0px);animation-timing-function:steps(42,end)}10.50%{transform:translateX(504px)}21.50%{transform:translateX(504px);animation-timing-function:steps(42,end)}24.50%{transform:translateX(0px)}100%{transform:translateX(0px)}} @keyframes v0{0%{opacity:1}24.99%{opacity:1}25.00%{opacity:0}100%{opacity:0}} .w0{animation:w0 18.0s infinite} .c0{animation:c0 18.0s infinite, blink 1s step-end infinite} .v0{animation:v0 18.0s infinite} @keyframes w1{0%{transform:scaleX(0)}25.00%{transform:scaleX(0);animation-timing-function:steps(44,end)}35.50%{transform:scaleX(1)}46.50%{transform:scaleX(1);animation-timing-function:steps(44,end)}49.50%{transform:scaleX(0)}100%{transform:scaleX(0)}} @keyframes c1{0%{transform:translateX(0px)}25.00%{transform:translateX(0px);animation-timing-function:steps(44,end)}35.50%{transform:translateX(528px)}46.50%{transform:translateX(528px);animation-timing-function:steps(44,end)}49.50%{transform:translateX(0px)}100%{transform:translateX(0px)}} @keyframes v1{0%{opacity:0}24.99%{opacity:0}25.00%{opacity:1}49.99%{opacity:1}50.00%{opacity:0}100%{opacity:0}} .w1{animation:w1 18.0s infinite} .c1{animation:c1 18.0s infinite, blink 1s step-end infinite} .v1{animation:v1 18.0s infinite} @keyframes w2{0%{transform:scaleX(0)}50.00%{transform:scaleX(0);animation-timing-function:steps(48,end)}60.50%{transform:scaleX(1)}71.50%{transform:scaleX(1);animation-timing-function:steps(48,end)}74.50%{transform:scaleX(0)}100%{transform:scaleX(0)}} @keyframes c2{0%{transform:translateX(0px)}50.00%{transform:translateX(0px);animation-timing-function:steps(48,end)}60.50%{transform:translateX(576px)}71.50%{transform:translateX(576px);animation-timing-function:steps(48,end)}74.50%{transform:translateX(0px)}100%{transform:translateX(0px)}} @keyframes v2{0%{opacity:0}49.99%{opacity:0}50.00%{opacity:1}74.99%{opacity:1}75.00%{opacity:0}100%{opacity:0}} .w2{animation:w2 18.0s infinite} .c2{animation:c2 18.0s infinite, blink 1s step-end infinite} .v2{animation:v2 18.0s infinite} @keyframes w3{0%{transform:scaleX(0)}75.00%{transform:scaleX(0);animation-timing-function:steps(47,end)}85.50%{transform:scaleX(1)}96.50%{transform:scaleX(1);animation-timing-function:steps(47,end)}99.50%{transform:scaleX(0)}100%{transform:scaleX(0)}} @keyframes c3{0%{transform:translateX(0px)}75.00%{transform:translateX(0px);animation-timing-function:steps(47,end)}85.50%{transform:translateX(564px)}96.50%{transform:translateX(564px);animation-timing-function:steps(47,end)}99.50%{transform:translateX(0px)}100%{transform:translateX(0px)}} @keyframes v3{0%{opacity:0}74.99%{opacity:0}75.00%{opacity:1}99.99%{opacity:1}100.00%{opacity:0}100%{opacity:0}} .w3{animation:w3 18.0s infinite} .c3{animation:c3 18.0s infinite, blink 1s step-end infinite} .v3{animation:v3 18.0s infinite}
+      @media (prefers-reduced-motion: reduce){.a1,.a2,.a3,.flow{animation:none}}
+    </style>
+  </defs>
+  <g clip-path="url(#card)">
+    <rect width="1200" height="400" fill="url(#bg)"/>
+    <g filter="url(#blur)" opacity=".85">
+      <circle class="a1" cx="260" cy="60" r="190" fill="#3B82F6" fill-opacity=".55"/>
+      <circle class="a2" cx="980" cy="330" r="210" fill="#8B5CF6" fill-opacity=".5"/>
+      <circle class="a3" cx="700" cy="40" r="150" fill="#22D3EE" fill-opacity=".35"/>
+    </g>
+    <rect width="1200" height="400" fill="url(#dots)" mask="url(#m)"/>
+  </g>
+  <rect x="1" y="1" width="1198" height="398" rx="25" fill="none" stroke="url(#rim)" stroke-width="2"/>
+
+  <g transform="translate(64 0)">
+    <text x="0" y="92" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="16" fill="#22D3EE" letter-spacing=".5">~/michex111 <tspan fill="#5B6888">$</tspan> <tspan fill="#9AA8C7">whoami</tspan></text>
+    <text x="-3" y="162" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="800" fill="url(#name)" letter-spacing="-1.5">Chukwuebuka Madu</text>
+    <text x="0" y="206" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="23" fill="#E6EDF7" font-weight="500">Backend &amp; systems engineer.</text>
+    <text x="0" y="238" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#9AA8C7">I build the machinery behind the interface.</text>
+    <g transform="translate(0 300)">
+      <text x="0" y="0" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="19" fill="#8B5CF6">building →</text>
+      <g transform="translate(128 0)">
+      <g class="v0">
+        <clipPath id="clip0"><rect class="w0" x="0" y="-24" width="504" height="34" transform="scale(0 1)"/></clipPath>
+        <text clip-path="url(#clip0)" x="0" y="0" textLength="504" lengthAdjust="spacingAndGlyphs" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="19" fill="#BFEFFF">distributed job pipelines on Redis Streams</text>
+        <rect class="c0" x="1" y="-19" width="10" height="23" rx="1.5" fill="#22D3EE"/>
+      </g>
+      <g class="v1">
+        <clipPath id="clip1"><rect class="w1" x="0" y="-24" width="528" height="34" transform="scale(0 1)"/></clipPath>
+        <text clip-path="url(#clip1)" x="0" y="0" textLength="528" lengthAdjust="spacingAndGlyphs" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="19" fill="#BFEFFF">CPython C-extensions for runtime type safety</text>
+        <rect class="c1" x="1" y="-19" width="10" height="23" rx="1.5" fill="#22D3EE"/>
+      </g>
+      <g class="v2">
+        <clipPath id="clip2"><rect class="w2" x="0" y="-24" width="576" height="34" transform="scale(0 1)"/></clipPath>
+        <text clip-path="url(#clip2)" x="0" y="0" textLength="576" lengthAdjust="spacingAndGlyphs" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="19" fill="#BFEFFF">MCP servers that let AI agents use real software</text>
+        <rect class="c2" x="1" y="-19" width="10" height="23" rx="1.5" fill="#22D3EE"/>
+      </g>
+      <g class="v3">
+        <clipPath id="clip3"><rect class="w3" x="0" y="-24" width="564" height="34" transform="scale(0 1)"/></clipPath>
+        <text clip-path="url(#clip3)" x="0" y="0" textLength="564" lengthAdjust="spacingAndGlyphs" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="19" fill="#BFEFFF">domain-driven FastAPI backends with clean seams</text>
+        <rect class="c3" x="1" y="-19" width="10" height="23" rx="1.5" fill="#22D3EE"/>
+      </g>
+      </g>
+    </g>
+    <g transform="translate(0 340)" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#9AA8C7">
+      <rect x="0" y="0" width="190" height="28" rx="14" fill="#101830" stroke="#26335C"/>
+      <circle cx="16" cy="14" r="4" fill="#34D399"/><text x="28" y="18.5">Charlottetown, PEI</text>
+      <rect x="202" y="0" width="216" height="28" rx="14" fill="#101830" stroke="#26335C"/>
+      <text x="216" y="18.5"><tspan fill="#3B82F6">Python</tspan> · <tspan fill="#22D3EE">TypeScript</tspan> · <tspan fill="#C084FC">C</tspan></text>
+    </g>
+  </g>
+
+  <g>
+    <text x="706" y="56" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#5B6888" letter-spacing="1.5">TRANSFORM · REQUEST PATH</text>
+      <path id="e0" d="M772 112 C852 112 852 162 932 162" fill="none" stroke="url(#edge)" stroke-width="1.6" stroke-opacity=".55"/>
+      <path d="M772 112 C852 112 852 162 932 162" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-dasharray="4 10" class="flow" stroke-opacity=".7"/>
+      <circle r="3.2" fill="#E0FBFF" filter="url(#glow)"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.00s"><mpath href="#e0"/></animateMotion></circle>
+      <path id="e1" d="M772 212 C852 212 852 162 932 162" fill="none" stroke="url(#edge)" stroke-width="1.6" stroke-opacity=".55"/>
+      <path d="M772 212 C852 212 852 162 932 162" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-dasharray="4 10" class="flow" stroke-opacity=".7"/>
+      <circle r="3.2" fill="#E0FBFF" filter="url(#glow)"><animateMotion dur="3.9000000000000004s" repeatCount="indefinite" begin="0.45s"><mpath href="#e1"/></animateMotion></circle>
+      <path id="e2" d="M932 162 C1012 162 1012 92 1092 92" fill="none" stroke="url(#edge)" stroke-width="1.6" stroke-opacity=".55"/>
+      <path d="M932 162 C1012 162 1012 92 1092 92" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-dasharray="4 10" class="flow" stroke-opacity=".7"/>
+      <circle r="3.2" fill="#E0FBFF" filter="url(#glow)"><animateMotion dur="4.6s" repeatCount="indefinite" begin="0.90s"><mpath href="#e2"/></animateMotion></circle>
+      <path id="e3" d="M932 162 C1012 162 1012 192 1092 192" fill="none" stroke="url(#edge)" stroke-width="1.6" stroke-opacity=".55"/>
+      <path d="M932 162 C1012 162 1012 192 1092 192" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-dasharray="4 10" class="flow" stroke-opacity=".7"/>
+      <circle r="3.2" fill="#E0FBFF" filter="url(#glow)"><animateMotion dur="3.2s" repeatCount="indefinite" begin="1.35s"><mpath href="#e3"/></animateMotion></circle>
+      <path id="e4" d="M1092 192 C1012 192 1012 302 932 302" fill="none" stroke="url(#edge)" stroke-width="1.6" stroke-opacity=".55"/>
+      <path d="M1092 192 C1012 192 1012 302 932 302" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-dasharray="4 10" class="flow" stroke-opacity=".7"/>
+      <circle r="3.2" fill="#E0FBFF" filter="url(#glow)"><animateMotion dur="3.9000000000000004s" repeatCount="indefinite" begin="1.80s"><mpath href="#e4"/></animateMotion></circle>
+      <path id="e5" d="M932 302 C1012 302 1012 302 1092 302" fill="none" stroke="url(#edge)" stroke-width="1.6" stroke-opacity=".55"/>
+      <path d="M932 302 C1012 302 1012 302 1092 302" fill="none" stroke="#22D3EE" stroke-width="1.6" stroke-dasharray="4 10" class="flow" stroke-opacity=".7"/>
+      <circle r="3.2" fill="#E0FBFF" filter="url(#glow)"><animateMotion dur="4.6s" repeatCount="indefinite" begin="2.25s"><mpath href="#e5"/></animateMotion></circle>
+      <g>
+        <rect x="706" y="92" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#8B5CF6" stroke-opacity=".7"/>
+        <circle cx="722" cy="112" r="3.5" fill="#8B5CF6"/>
+        <text x="734" y="117" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">MCP / agents</text>
+      </g>
+      <g>
+        <rect x="706" y="192" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#3B82F6" stroke-opacity=".7"/>
+        <circle cx="722" cy="212" r="3.5" fill="#3B82F6"/>
+        <text x="734" y="217" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">React SPA</text>
+      </g>
+      <g>
+        <rect x="866" y="142" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#22D3EE" stroke-opacity=".7"/>
+        <circle cx="882" cy="162" r="3.5" fill="#22D3EE"/>
+        <text x="894" y="167" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">FastAPI</text>
+      </g>
+      <g>
+        <rect x="1026" y="72" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#3B82F6" stroke-opacity=".7"/>
+        <circle cx="1042" cy="92" r="3.5" fill="#3B82F6"/>
+        <text x="1054" y="97" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">PostgreSQL</text>
+      </g>
+      <g>
+        <rect x="1026" y="172" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#22D3EE" stroke-opacity=".7"/>
+        <circle cx="1042" cy="192" r="3.5" fill="#22D3EE"/>
+        <text x="1054" y="197" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">Redis Streams</text>
+      </g>
+      <g>
+        <rect x="866" y="282" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#3B82F6" stroke-opacity=".7"/>
+        <circle cx="882" cy="302" r="3.5" fill="#3B82F6"/>
+        <text x="894" y="307" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">workers</text>
+      </g>
+      <g>
+        <rect x="1026" y="282" width="132" height="40" rx="10" fill="#0D1430" fill-opacity=".92" stroke="#3B82F6" stroke-opacity=".7"/>
+        <circle cx="1042" cy="302" r="3.5" fill="#3B82F6"/>
+        <text x="1054" y="307" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#E6EDF7">S3 storage</text>
+      </g>
+  </g>
+</svg>

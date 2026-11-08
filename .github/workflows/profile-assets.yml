@@ -1,0 +1,62 @@
+name: Profile assets
+
+# Regenerates the two dynamic images the README embeds:
+#   assets/generated/stats.svg            — activity card (scripts/generate_stats.py)
+#   assets/generated/snake-{dark,light}.svg — contribution snake (Platane/snk)
+# Both are committed to the default branch, so the README never points at a
+# file that does not exist.
+
+on:
+  schedule:
+    - cron: "23 4 * * *" # daily, 04:23 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/generate_stats.py
+      - .github/workflows/profile-assets.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-assets
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Activity card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_stats.py --user "${{ github.repository_owner }}" --out assets/generated/stats.svg
+
+      - name: Contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-dark.svg?color_snake=#22d3ee&color_dots=#161b22,#1e3a8a,#2563eb,#7c3aed,#c084fc
+            dist/snake-light.svg?color_snake=#7c3aed&color_dots=#ebedf0,#bfdbfe,#60a5fa,#8b5cf6,#6d28d9
+
+      - name: Copy snake into assets
+        run: cp dist/snake-dark.svg dist/snake-light.svg assets/generated/
+
+      - name: Commit changes
+        run: |
+          git add assets/generated
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh profile assets"
+          git push
