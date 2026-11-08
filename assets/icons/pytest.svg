@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" role="img" aria-label="Pytest">
+  <title>Pytest</title>
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity=".75"/>
+    </linearGradient>
+    <linearGradient id="f" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141B33"/>
+      <stop offset="1" stop-color="#0A0F1F"/>
+    </linearGradient>
+  </defs>
+  <rect x=".75" y=".75" width="54.5" height="54.5" rx="14" fill="url(#f)" stroke="url(#b)" stroke-width="1.5"/>
+  <g transform="translate(14 14) scale(1.1667)"><path fill="#0A9EDC" d="M2.6152 0v.8867h3.8399V0zm5.0215 0v.8867h3.8418V0zm4.957 0v.8867h3.8418V0zm4.9356 0v.8867h3.8418V0zM2.4473 1.8945a.935.935 0 0 0-.9356.9356c0 .517.4185.9375.9356.9375h19.1054c.5171 0 .9356-.4204.9356-.9375a.935.935 0 0 0-.9356-.9356zm.168 2.8477V24H6.455V4.7422zm5.0214 0V20.543h3.8418V4.7422zm4.957 0V15.291h3.8497V4.7422zm4.9356 0v6.4941h3.8418V4.7422z"/></g>
+</svg>

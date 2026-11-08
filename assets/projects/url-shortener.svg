@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250" role="img" aria-label="Pro URL Shortener: Async FastAPI service with Base62 IDs and a Redis cache-aside layer">
+  <title>Pro URL Shortener — Async FastAPI service with Base62 IDs and a Redis cache-aside layer</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1122"/><stop offset="1" stop-color="#080C18"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity=".8"/><stop offset=".5" stop-color="#1B2547"/><stop offset="1" stop-color="#8B5CF6" stop-opacity=".6"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <radialGradient id="halo" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity=".35"/><stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0V22" fill="none" stroke="#5B74B8" stroke-opacity=".12"/></pattern>
+    <clipPath id="c"><rect width="1000" height="250" rx="22"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="1000" height="250" fill="url(#bg)"/>
+    <rect x="0" y="0" width="290" height="250" fill="url(#grid)"/>
+    <circle cx="145" cy="125" r="140" fill="url(#halo)"/>
+    <g>
+  <g transform="translate(145 104) rotate(-35)" fill="none" stroke-width="9" stroke-linecap="round">
+    <rect x="-70" y="-20" width="78" height="40" rx="20" stroke="#3B82F6"/>
+    <rect x="-8" y="-20" width="78" height="40" rx="20" stroke="#22D3EE"/>
+  </g>
+  <g transform="translate(60 170)">
+    <rect width="170" height="38" rx="10" fill="#0F1630" stroke="#2A3A73"/>
+    <text x="16" y="25" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="15" fill="#9AA8C7">/url/<tspan fill="#22D3EE" font-weight="700">aZ3k</tspan></text>
+    <text x="154" y="25" text-anchor="end" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" fill="#8B5CF6">b62</text>
+  </g></g>
+  </g>
+  <rect x="1" y="1" width="998" height="248" rx="21" fill="none" stroke="url(#rim)" stroke-width="1.6"/>
+  <line x1="290" y1="28" x2="290" y2="222" stroke="#1E2A50"/>
+  <text x="326" y="64" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#3B82F6" letter-spacing="2">ASYNC BACKEND · CACHING</text>
+  <text x="324" y="118" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="46" font-weight="800" fill="#E6EDF7" letter-spacing="-1">Pro URL Shortener</text>
+  <text x="326" y="154" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#9AA8C7">Async FastAPI service with Base62 IDs and a Redis cache-aside layer</text>
+  <g><rect x="326" y="184" width="90" height="30" rx="15" fill="#0F1630" stroke="#009688" stroke-opacity=".55"/><circle cx="339" cy="199" r="3.5" fill="#009688"/><text x="349" y="204" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" fill="#E6EDF7">FastAPI</text></g><g><rect x="426" y="184" width="168" height="30" rx="15" fill="#0F1630" stroke="#D71F00" stroke-opacity=".55"/><circle cx="439" cy="199" r="3.5" fill="#D71F00"/><text x="449" y="204" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" fill="#E6EDF7">async SQLAlchemy</text></g><g><rect x="604" y="184" width="116" height="30" rx="15" fill="#0F1630" stroke="#3B82F6" stroke-opacity=".55"/><circle cx="617" cy="199" r="3.5" fill="#3B82F6"/><text x="627" y="204" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" fill="#E6EDF7">PostgreSQL</text></g><g><rect x="730" y="184" width="73" height="30" rx="15" fill="#0F1630" stroke="#FF4438" stroke-opacity=".55"/><circle cx="743" cy="199" r="3.5" fill="#FF4438"/><text x="753" y="204" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13.5" fill="#E6EDF7">Redis</text></g>
+</svg>

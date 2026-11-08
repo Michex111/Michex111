@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="60" viewBox="0 0 600 60" role="img" aria-label="About">
+  <title>About</title>
+  <defs>
+    <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset=".5" stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bx" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0C1226"/><stop offset="1" stop-color="#0A0E1C"/>
+    </linearGradient>
+  </defs>
+  <rect x=".5" y=".5" width="599" height="59" rx="16" fill="url(#bg)" stroke="#1B2547"/>
+  <rect x="14" y="13" width="34" height="34" rx="10" fill="none" stroke="url(#bx)" stroke-width="2"/>
+  <text x="31" y="35" text-anchor="middle" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#22D3EE">01</text>
+  <text x="62" y="38.5" font-family="Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="700" fill="#E6EDF7" letter-spacing="-.3">About</text>
+  <text x="158" y="37" font-family="'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#5B6888">// how I think about software</text>
+  <rect x="62" y="47" width="338" height="2" rx="1" fill="url(#ln)"/>
+</svg>
