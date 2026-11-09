@@ -3,6 +3,7 @@
 | Path | Source | License |
 |------|--------|---------|
 | `icons/*.svg` | Glyph paths from [Simple Icons](https://github.com/simple-icons/simple-icons) v16.37.0, placed on custom tiles | Simple Icons data: [CC0 1.0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). Brand names and logos belong to their owners. |
+| `icons/java.svg` | Java logo from [Devicon](https://github.com/devicons/devicon) v2.18.0 (`java-original`), blue lightened for dark backgrounds, placed on a custom tile | Devicon: [MIT](https://github.com/devicons/devicon/blob/master/LICENSE). The Java logo is a trademark of Oracle. |
 | `icons/llm.svg`, `icons/sqlalchemy.svg` | Original glyphs drawn for this profile | Same as this repository |
 | `links/github.svg`, `links/pypi.svg` | Glyph paths from Simple Icons (as above) | CC0 1.0 (glyph data) |
 | `hero.svg`, `sections/`, `projects/`, `links/` (other) | Original SVGs drawn for this profile | Same as this repository |
