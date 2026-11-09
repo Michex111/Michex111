@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render the profile's activity card (assets/generated/stats.svg).
 
-The card is built from the public GitHub REST API so the README does not depend
+The card is built from the GitHub REST and GraphQL APIs so the README does not depend
 on a third-party stats service. Standard library only; run by
 .github/workflows/profile-assets.yml.
 
@@ -63,6 +63,54 @@ def _count_commits(owner: str, repo: str, author: str, since: str, token: str | 
     return int(match.group(1)) if match else len(body)  # type: ignore[arg-type]
 
 
+def _graphql(query: str, variables: dict, token: str) -> dict:
+    req = urllib.request.Request(
+        API + "/graphql",
+        data=json.dumps({"query": query, "variables": variables}).encode(),
+        headers={"Authorization": f"Bearer {token}", "User-Agent": "profile-stats-card",
+                 "Content-Type": "application/json"},
+    )
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        body = json.load(resp)
+    if body.get("errors"):
+        raise RuntimeError(body["errors"])
+    return body["data"]
+
+
+_CONTRIB_QUERY = """
+query($login: String!, $from: DateTime!, $to: DateTime!) {
+  user(login: $login) {
+    createdAt
+    contributionsCollection(from: $from, to: $to) {
+      contributionCalendar { totalContributions }
+    }
+  }
+}"""
+
+
+def _contributions(user: str, token: str | None) -> tuple[int, int] | None:
+    """All-time contribution total (the number on the profile calendar, summed
+    per year since the account was created) and the first year. GraphQL needs a
+    token; without one, or on any error, the card simply omits the tile."""
+    if not token:
+        return None
+    try:
+        now = dt.datetime.now(dt.timezone.utc)
+        day_ago = (now - dt.timedelta(days=1)).isoformat()
+        first = _graphql(_CONTRIB_QUERY, {"login": user, "from": day_ago, "to": now.isoformat()}, token)
+        start_year = int(first["user"]["createdAt"][:4])
+        total = 0
+        for year in range(start_year, now.year + 1):
+            frm = dt.datetime(year, 1, 1, tzinfo=dt.timezone.utc)
+            to = min(dt.datetime(year, 12, 31, 23, 59, 59, tzinfo=dt.timezone.utc), now)
+            data = _graphql(_CONTRIB_QUERY, {"login": user, "from": frm.isoformat(), "to": to.isoformat()}, token)
+            total += data["user"]["contributionsCollection"]["contributionCalendar"]["totalContributions"]
+        return total, start_year
+    except (urllib.error.URLError, RuntimeError, KeyError, TypeError) as exc:
+        print(f"contributions unavailable: {exc}", file=sys.stderr)
+        return None
+
+
 def collect(user: str, token: str | None) -> dict:
     repos: list[dict] = []
     page = 1
@@ -87,9 +135,12 @@ def collect(user: str, token: str | None) -> dict:
             languages[name] = languages.get(name, 0) + int(size)
         commits += _count_commits(user, repo["name"], user, since, token)
 
+    contrib = _contributions(user, token)
     return {
         "user": user,
         "repos": len(own),
+        "contributions": contrib[0] if contrib else None,
+        "contributions_since": contrib[1] if contrib else None,
         "stars": sum(r["stargazers_count"] for r in own),
         "commits_12mo": commits,
         "languages": sorted(languages.items(), key=lambda kv: -kv[1]),
@@ -112,7 +163,7 @@ def render(data: dict, updated: str) -> str:
         segments.append(("Other", rest, OTHER))
 
     # language bar
-    bar_x, bar_y, bar_w, bar_h = 40, 168, 920, 14
+    bar_x, bar_y, bar_w, bar_h = 40, 182, 920, 14
     bar, x = [], float(bar_x)
     for _, size, color in segments:
         w = bar_w * size / total
@@ -123,30 +174,39 @@ def render(data: dict, updated: str) -> str:
     legend = []
     for i, (name, size, color) in enumerate(segments):
         col, row = i % 4, i // 4
-        lx, ly = 40 + col * 232, 214 + row * 28
+        lx, ly = 40 + col * 232, 228 + row * 28
         legend.append(
             f'<circle cx="{lx + 6}" cy="{ly - 5}" r="6" fill="{color}"/>'
             f'<text x="{lx + 20}" y="{ly}" font-family="{SANS}" font-size="15" fill="#E6EDF7">{escape(name)}'
             f'<tspan font-family="{MONO}" font-size="13" fill="#7C8BAE"> {100 * size / total:.1f}%</tspan></text>'
         )
 
-    def metric(x: int, value: str, label: str, color: str) -> str:
+    tiles = [(str(data["repos"]), "original repos", "#3B82F6")]
+    if data.get("contributions") is not None:
+        tiles.append((f"{data['contributions']:,}", f"contributions · since {data['contributions_since']}", "#22D3EE"))
+    tiles.append((f"{data['commits_12mo']:,}", "commits · 12 months", "#6366F1"))
+    tiles.append((str(data["stars"]), "stars", "#8B5CF6"))
+    gap = 16
+    tile_w = (920 - gap * (len(tiles) - 1)) / len(tiles)
+
+    def metric(i: int, value: str, label: str, color: str) -> str:
+        x = 40 + i * (tile_w + gap)
         return (
-            f'<g transform="translate({x} 64)">'
-            f'<rect width="290" height="72" rx="14" fill="#0F1630" stroke="#1E2A50"/>'
-            f'<rect x="0" y="18" width="3" height="36" rx="1.5" fill="{color}"/>'
-            f'<text x="22" y="44" font-family="{SANS}" font-size="30" font-weight="800" fill="#E6EDF7">{escape(value)}</text>'
-            f'<text x="268" y="42" text-anchor="end" font-family="{MONO}" font-size="12.5" fill="#9AA8C7">{escape(label)}</text>'
+            f'<g transform="translate({x:.1f} 60)">'
+            f'<rect width="{tile_w:.1f}" height="80" rx="14" fill="#0F1630" stroke="#1E2A50"/>'
+            f'<rect x="0" y="20" width="3" height="40" rx="1.5" fill="{color}"/>'
+            f'<text x="20" y="40" font-family="{SANS}" font-size="28" font-weight="800" fill="#E6EDF7">{escape(value)}</text>'
+            f'<text x="20" y="63" font-family="{MONO}" font-size="12" fill="#9AA8C7">{escape(label)}</text>'
             f'</g>'
         )
 
     rows = 1 + (len(segments) - 1) // 4
-    height = 214 + rows * 28 + 14
+    height = 228 + rows * 28 + 14
     fp = _fingerprint(data)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="{height}" viewBox="0 0 1000 {height}" role="img" aria-labelledby="t d">
   <!-- fingerprint:{fp} -->
   <title id="t">GitHub activity for {escape(data['user'])}</title>
-  <desc id="d">{data['repos']} original public repositories, {data['commits_12mo']} commits in the last 12 months, {data['stars']} stars. Languages by bytes of code: {escape(', '.join(f'{n} {100 * s / total:.1f}%' for n, s, _ in segments))}.</desc>
+  <desc id="d">{data['repos']} original public repositories, {f"{data['contributions']} contributions since {data['contributions_since']}, " if data.get('contributions') is not None else ''}{data['commits_12mo']} commits in the last 12 months, {data['stars']} stars. Languages by bytes of code: {escape(', '.join(f'{n} {100 * s / total:.1f}%' for n, s, _ in segments))}.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1122"/><stop offset="1" stop-color="#080C18"/></linearGradient>
     <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE" stop-opacity=".6"/><stop offset=".5" stop-color="#1B2547"/><stop offset="1" stop-color="#8B5CF6" stop-opacity=".6"/></linearGradient>
@@ -154,11 +214,9 @@ def render(data: dict, updated: str) -> str:
   </defs>
   <rect x="1" y="1" width="998" height="{height - 2}" rx="21" fill="url(#bg)" stroke="url(#rim)" stroke-width="1.6"/>
   <text x="40" y="42" font-family="{MONO}" font-size="13" fill="#22D3EE" letter-spacing="2">ENGINEERING ACTIVITY</text>
-  <text x="960" y="42" text-anchor="end" font-family="{MONO}" font-size="12" fill="#5B6888">updated {escape(updated)} · GitHub REST API</text>
-  {metric(40, str(data['repos']), 'original repos', '#3B82F6')}
-  {metric(355, f"{data['commits_12mo']:,}", 'commits · 12 months', '#22D3EE')}
-  {metric(670, str(data['stars']), 'stars', '#8B5CF6')}
-  <text x="40" y="156" font-family="{MONO}" font-size="12" fill="#7C8BAE" letter-spacing="1.5">LANGUAGES · BY BYTES OF CODE</text>
+  <text x="960" y="42" text-anchor="end" font-family="{MONO}" font-size="12" fill="#5B6888">updated {escape(updated)} · GitHub API</text>
+  {''.join(metric(i, *t) for i, t in enumerate(tiles))}
+  <text x="40" y="170" font-family="{MONO}" font-size="12" fill="#7C8BAE" letter-spacing="1.5">LANGUAGES · BY BYTES OF CODE</text>
   <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="7" fill="#141C38"/>
   <g clip-path="url(#bar)">{''.join(bar)}</g>
   {''.join(legend)}

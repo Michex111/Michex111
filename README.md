@@ -112,7 +112,9 @@ A full file-conversion platform covering documents, images, audio, video, ebooks
 - **Tested and gated:** 2,100+ pytest test functions, Vitest on the frontend, `pyrefly` type checking in CI, and deploys that only run after CI passes.
 
 <sub>**Stack:** Python · FastAPI · SQLAlchemy 2 (async) · Alembic · PostgreSQL · Redis Streams · S3 (MinIO / Backblaze B2) · Stripe · React 18 · TypeScript · Vite · Tailwind · Docker · Prometheus</sub><br/>
-**[Source →](https://github.com/Michex111/transform)** &nbsp;·&nbsp; **[Live →](https://transform-to.com)**
+**[Source →](https://github.com/Michex111/transform)** &nbsp;·&nbsp; **[Live →](https://transform-to.com)**<br/>
+<a href="https://transform-to.com"><img src="https://img.shields.io/website?url=https%3A%2F%2Ftransform-to.com&label=transform-to.com&style=flat-square&labelColor=0B1122&up_color=22D3EE&down_color=F43F5E" alt="Live status of transform-to.com" /></a>
+<a href="https://github.com/Michex111/transform/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Michex111/transform/ci.yml?branch=main&label=CI&style=flat-square&labelColor=0B1122&color=3B82F6" alt="Transform CI status on main" /></a>
 
 <br/>
 
@@ -126,7 +128,9 @@ Runtime type checking usually costs a lot because it runs in Python. Guardian mo
 - **Released properly:** tag-triggered CI runs the tests, then builds wheels with `cibuildwheel` for Linux, macOS (x86_64 + arm64) and Windows, including free-threaded CPython 3.14, and publishes them to PyPI. Includes a benchmark harness comparing it with Pydantic v2 and Beartype.
 
 <sub>**Stack:** C · CPython C-API · Python · pytest · cibuildwheel · GitHub Actions</sub><br/>
-**[Source →](https://github.com/Michex111/guardian-type-enforcer)** &nbsp;·&nbsp; **[PyPI →](https://pypi.org/project/guardian-type-enforcer/)** &nbsp;·&nbsp; `pip install guardian-type-enforcer`
+**[Source →](https://github.com/Michex111/guardian-type-enforcer)** &nbsp;·&nbsp; **[PyPI →](https://pypi.org/project/guardian-type-enforcer/)** &nbsp;·&nbsp; `pip install guardian-type-enforcer`<br/>
+<a href="https://pypi.org/project/guardian-type-enforcer/"><img src="https://img.shields.io/pypi/v/guardian-type-enforcer?label=PyPI&style=flat-square&labelColor=0B1122&color=8B5CF6" alt="Latest Guardian release on PyPI" /></a>
+<a href="https://pypi.org/project/guardian-type-enforcer/"><img src="https://img.shields.io/pypi/pyversions/guardian-type-enforcer?label=python&style=flat-square&labelColor=0B1122&color=3B82F6" alt="Python versions supported by Guardian" /></a>
 
 <br/>
 
@@ -176,6 +180,8 @@ Open an issue on any of my repos, or find me here:
 
 <br/>
 
-<sub>Every visual on this page is a self-hosted SVG in <a href="assets"><code>assets/</code></a>. The activity card and snake are regenerated daily by <a href=".github/workflows/profile-assets.yml">a GitHub Actions workflow</a>.</sub>
+<sub>Every graphic on this page is a self-hosted SVG in <a href="assets"><code>assets/</code></a>. The activity card and snake are regenerated daily by <a href=".github/workflows/profile-assets.yml">a GitHub Actions workflow</a>; only the small status badges are fetched live from shields.io.</sub>
 
 </div>
+
+<img src="assets/footer-wave.svg" width="100%" alt="" />
