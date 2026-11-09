@@ -37,11 +37,12 @@ A few habits show up in everything I build:
 
 <table>
   <tr>
-    <td><b>Languages</b><br/><sub>Python · TypeScript · C</sub></td>
+    <td><b>Languages</b><br/><sub>Python · TypeScript · C · Java</sub></td>
     <td>
       <img src="assets/icons/python.svg" width="44" alt="Python" title="Python" />
       <img src="assets/icons/typescript.svg" width="44" alt="TypeScript" title="TypeScript" />
       <img src="assets/icons/c.svg" width="44" alt="C" title="C (CPython C-API)" />
+      <img src="assets/icons/java.svg" width="44" alt="Java" title="Java" />
     </td>
   </tr>
   <tr>
